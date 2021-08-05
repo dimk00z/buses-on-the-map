@@ -9,11 +9,12 @@ from trio_websocket import open_websocket_url
 
 async def run_bus(url, route):
     try:
-        bus_id = uuid4().hex
+        # bus_id = uuid4().hex
         async with open_websocket_url(url) as ws:
             for lat, lng in cycle(route['coordinates']):
                 message = {
-                    'busId': bus_id,
+                    'busId': route['name'],
+                    # 'busId': bus_id,
                     'lat': lat,
                     'lng': lng,
                     'route': route['name']
