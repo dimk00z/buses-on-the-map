@@ -1,4 +1,5 @@
 import os
+import json
 
 
 def load_routes(directory_path='routes'):
@@ -9,6 +10,6 @@ def load_routes(directory_path='routes'):
                 yield json.load(file)
 
 
-# usage example
-for route in load_routes():
-    pass  # do something
+# # usage example
+# for route in load_routes():
+#     pass  # do something
