@@ -28,14 +28,14 @@ async def talk_to_browser(request):
                         'route': route
                     }
                 )
-                message = {
-                    'msgType': 'Buses',
-                    'buses': result}
-                # logger.info(message)
-                await ws.send_message(json.dumps(message))
-                await trio.sleep(1)
-            # logger.info('talk_to_browser is still runnig')
+            message = {
+                'msgType': 'Buses',
+                'buses': result}
+            # logger.info(message)
+            await ws.send_message(json.dumps(message))
             await trio.sleep(1)
+            # logger.info('talk_to_browser is still runnig')
+            # await trio.sleep(1)
 
         except ConnectionClosed:
             break
