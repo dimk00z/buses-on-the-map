@@ -11,11 +11,11 @@ async def run_bus(url, route):
     try:
         bus_id = uuid4().hex
         async with open_websocket_url(url) as ws:
-            for lat, lon in cycle(route['coordinates']):
+            for lat, lng in cycle(route['coordinates']):
                 message = {
                     'busId': bus_id,
                     'lat': lat,
-                    'lon': lon,
+                    'lng': lng,
                     'route': route['name']
                 }
                 await ws.send_message(json.dumps(message, ensure_ascii=False))
